@@ -1,0 +1,24 @@
+---
+# Source: helm for kubernetes/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kiki
+  labels:
+    app: kiki
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: kiki
+  template:
+    metadata:
+      labels:
+        app: kiki
+    spec:
+      containers:
+        - name: kiki
+          image: docker.io/phengbunath/kiki:1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
